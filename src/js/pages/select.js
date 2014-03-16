@@ -1,3 +1,23 @@
+// var uri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+// var uri = 'image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+var uri = 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+var bgp = chrome.extension.getBackgroundPage();
+bgp.oauth.authorize(function(res){
+    // var url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
+    // var url = "https://api.twitter.com/1.1/statuses/update.json";
+    var url = "https://api.twitter.com/1.1/statuses/update_with_media.json";
+    var callback = function(resp){
+        console.log("API call response\n", resp);
+    };
+    bgp.oauth.sendSignedRequest(url, callback, {
+      'method': 'POST',
+      'parameters': {
+        'status': 'てすてす。' + String(Date.now()),
+        "media[]": uri + ';type=png'
+      }
+    });
+
+});
 
 function toggleAchievementsArea(switcher){
     var div = document.getElementById('achievements');

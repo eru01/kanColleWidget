@@ -9,6 +9,9 @@
         "48"  : "icon.48.png",
         "128" : "icon.128.png"
     },
+    "web_accessible_resources": [
+      "chrome_ex_oauth.html*"
+    ],
     "permissions" : [
         "tabs",
         "notifications",
@@ -21,6 +24,8 @@
     "background" : {
         "persistent" : true,
         "scripts" : [
+            "src/js/chrome_ex_oauthsimple.js",
+            "src/js/chrome_ex_oauth.js",
             "src/js/jquery.min.js",
             "src/js/pages/view/View.js",
             "src/js/AssetManager.js",

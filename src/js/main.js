@@ -3,6 +3,14 @@
  * ここはなるべくイベントのバインドしか書かない
  * 注意: トップレベル以外で`chrome`文言を書かない
  */
+var oauth = ChromeExOAuth.initBackgroundPage({
+  'request_url': "https://api.twitter.com/oauth/request_token",
+  'authorize_url':   "https://api.twitter.com/oauth/authorize",
+  'access_url':   "https://api.twitter.com/oauth/access_token",
+  'consumer_key':                      "6AsP5LGXgbFHiLqxzM4ZcQ",
+  'consumer_secret':"gAvtZfpNkEAuo8gjodD2Mr20fVMQLFl0f3VUQQxpTc"
+});
+
 var KanColleWidget = KanColleWidget || {};
 (function(){
     "use strict";
