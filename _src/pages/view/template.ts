@@ -1,0 +1,12 @@
+/// <reference path="../../../definitions/handlebars/handlebars.d.ts" />
+module widgetPages {
+    export class HBSTemplate {
+        private template: HandlebarsTemplate = null;
+        constructor(private name: string) {
+            this.template = HBS['tpl/' + name];
+        }
+        render(param?: Object): string {
+            return this.template(param);
+        }
+    }
+}
